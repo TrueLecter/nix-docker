@@ -11,7 +11,6 @@ stdenv.mkDerivation rec {
 
   # buildInputs = [ findutils ];
 
-  dontUnpack = true;
   dontBuild = true;
   preferLocalBuild = true;
 
