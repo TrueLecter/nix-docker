@@ -1,6 +1,6 @@
 FROM truelecter86/nix:base-2022-06-13
 
-RUN nix-env -f '<nixpkgs>' -iA \
+RUN nix-env -f 'https://github.com/NixOS/nixpkgs/archive/nixos-22.05.tar.gz' -iA \
     gnused \
     openssh \
  && nix-store --gc
