@@ -11,14 +11,15 @@ The current [official docker image for nix](https://hub.docker.com/r/nixos/nix/)
 - it's easy to build a new custom baseimage using a specific version of nixpkgs,
   this makes it a lot easier to create an image with a custom version of nix or nixpkgs.
 
-- the lnl7/nix:ssh image can be used to setup an image that can be used as a remote builder,
+- the truelecter86/nix:ssh-2022-06-13-22.05 image can be used to setup an image that can be used as a remote builder,
   this allows you to build expressions for `x86_64-linux` on other platforms (ex. building a new baseimage on a darwin machine)
 
 
 ## Base Images
 
-All the images are based on the latest baseimage, previous versions are available in my repository [https://hub.docker.com/r/lnl7/nix/tags](https://hub.docker.com/r/lnl7/nix/tags).
+All the images are based on the latest baseimage, previous versions are available in [my Docker Hub repository](https://hub.docker.com/r/truelecter86/nix/tags) or [lnl7's Docker Hub repository](https://hub.docker.com/r/lnl7/nix/tags).
 
+- `truelecter86/nix:base-2022-06-13`
 - `lnl7/nix:2020-09-11` (2.3.7)
 - `lnl7/nix:2020-06-07` (2.3.6)
 - `lnl7/nix:2020-03-07` (2.3.3)
@@ -42,14 +43,14 @@ All the images are based on the latest baseimage, previous versions are availabl
 
 The default image is intended for interactive use and includes some common and useful packages:
 ```sh
-docker run --rm -it lnl7/nix nix repl '<nixpkgs>'
+docker run --rm -it truelecter86/nix:base-2022-06-13 nix repl '<nixpkgs>'
 nix-repl> 
 ```
 
 ## Building an Image
 
 ```Dockerfile
-FROM lnl7/nix:2.3.7
+FROM truelecter86/nix:base-2022-06-13
 
 RUN nix-env -iA \
  nixpkgs.curl \
