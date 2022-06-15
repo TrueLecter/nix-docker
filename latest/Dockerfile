@@ -1,4 +1,4 @@
-FROM lnl7/nix:2020-09-11
+FROM truelecter86/nix:base-2022-06-13
 
 RUN nix-env -f '<nixpkgs>' -iA \
     curl \
